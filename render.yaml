@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: o-camp-hortifruti
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        value: hortifruti123
