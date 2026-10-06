@@ -113,6 +113,15 @@ def init_db():
 
 init_db()
 
+# DIAGNÓSTICO TEMPORÁRIO — remover depois de resolver o TemplateNotFound
+app.logger.warning(f"[DIAGNOSTICO] BASE_DIR = {BASE_DIR}")
+app.logger.warning(f"[DIAGNOSTICO] Conteudo de BASE_DIR: {os.listdir(BASE_DIR)}")
+_templates_path = os.path.join(BASE_DIR, "templates")
+if os.path.isdir(_templates_path):
+    app.logger.warning(f"[DIAGNOSTICO] Conteudo de templates/: {os.listdir(_templates_path)}")
+else:
+    app.logger.warning(f"[DIAGNOSTICO] A pasta templates/ NAO EXISTE em {_templates_path}")
+
 # ---------------------------------------------------------------------------
 # HELPERS
 # ---------------------------------------------------------------------------
